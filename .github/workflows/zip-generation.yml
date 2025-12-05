@@ -26,7 +26,7 @@ jobs:
 
       - name: Beep to notify completion
         run: |
-          [console]::Beep(150,1000)
+          [console]::Beep(400,10000)
 
       - name: Show Windows Toast Notification
         run: |
