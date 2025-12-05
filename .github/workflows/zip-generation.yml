@@ -24,10 +24,6 @@ jobs:
           path: project.zip
           retention-days: 7
 
-      - name: Beep to notify completion
-        run: |
-          [console]::Beep(400,10000)
-
       - name: Show Windows Toast Notification
         run: |
           msg * "GitHub Action: ZIP Build Completed!"
