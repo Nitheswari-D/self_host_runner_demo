@@ -3,11 +3,11 @@ name: Create ZIP on Push (Self Hosted)
 on:
   push:
     branches:
-      - "**"   # Run on all branches
+      - "**"   
 
 jobs:
   zip_project:
-    runs-on: self-hosted   # Your Windows laptop
+    runs-on: self-hosted  
 
     steps:
       - name: Checkout repository
@@ -23,6 +23,10 @@ jobs:
           name: project-zip
           path: project.zip
           retention-days: 7
+
+      - name: Beep to notify completion
+        run: |
+          [console]::Beep(150,1000)
 
       - name: Show Windows Toast Notification
         run: |
