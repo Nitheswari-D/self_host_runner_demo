@@ -1,33 +1,33 @@
-name: Create ZIP on Push (Self Hosted)
+name: Create Multiple Artifacts
 
 on:
   push:
-    branches:
-      - "**"   
 
 jobs:
-  zip_project:
-    runs-on: self-hosted  
+  build-artifacts:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Create ZIP File
+      - name: Create ZIP artifact
         run: |
-          Compress-Archive -Path . -DestinationPath project.zip -Force
+          mkdir build
+          zip -r build/project.zip .
 
-      - name: Upload ZIP as Artifact
+      - name: Create TAR.GZ artifact
+        run: |
+          tar -czvf build/project.tar.gz .
+
+      - name: Upload ZIP artifact
         uses: actions/upload-artifact@v4
         with:
           name: project-zip
-          path: project.zip
-          retention-days: 7
+          path: build/project.zip
 
-      - name: Show Windows Toast Notification
-        run: |
-          msg * "GitHub Action: ZIP Build Completed!"
-
-      - name: Run python file on laptop
-        run: |
-          python "C:/Users/nd/Desktop/runner_result/post_job.py"
+      - name: Upload TAR.GZ artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-tar
+          path: build/project.tar.gz

@@ -1,0 +1,33 @@
+name: Create ZIP on Push (Self Hosted)
+
+on:
+  push:
+    branches:
+      - "**"   
+
+jobs:
+  zip_project:
+    runs-on: self-hosted  
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create ZIP File
+        run: |
+          Compress-Archive -Path . -DestinationPath project.zip -Force
+
+      - name: Upload ZIP as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-zip
+          path: project.zip
+          retention-days: 7
+
+      - name: Show Windows Toast Notification
+        run: |
+          msg * "GitHub Action: ZIP Build Completed!"
+
+      - name: Run python file on laptop
+        run: |
+          python "C:/Users/nd/Desktop/runner_result/post_job.py"
