@@ -26,10 +26,4 @@ jobs:
 
       - name: Show Windows Toast Notification
         run: |
-          [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null;
-          $template = [Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent([Windows.UI.Notifications.ToastTemplateType]::ToastText01);
-          $text = $template.GetElementsByTagName('text');
-          $text.Item(0).AppendChild($template.CreateTextNode('GitHub Action: Job Completed!'));
-          $toast = [Windows.UI.Notifications.ToastNotification]::new($template);
-          $notifier = [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('GitHub Actions');
-          $notifier.Show($toast);
+          msg * "GitHub Action: ZIP Build Completed!"
