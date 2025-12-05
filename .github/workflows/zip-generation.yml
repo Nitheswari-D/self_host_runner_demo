@@ -15,7 +15,7 @@ jobs:
 
       - name: Create ZIP File
         run: |
-          powershell -command "Compress-Archive -Path . -DestinationPath project.zip -Force"
+          Compress-Archive -Path . -DestinationPath project.zip -Force
 
       - name: Upload ZIP as Artifact
         uses: actions/upload-artifact@v4
@@ -26,12 +26,10 @@ jobs:
 
       - name: Show Windows Toast Notification
         run: |
-          powershell -command "
-            [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null;
-            $template = [Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent([Windows.UI.Notifications.ToastTemplateType]::ToastText01);
-            $text = $template.GetElementsByTagName('text');
-            $text.Item(0).AppendChild($template.CreateTextNode('GitHub Action: Job Completed!'));
-            $toast = [Windows.UI.Notifications.ToastNotification]::new($template);
-            $notifier = [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('GitHub Actions');
-            $notifier.Show($toast);
-          "
+          [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null;
+          $template = [Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent([Windows.UI.Notifications.ToastTemplateType]::ToastText01);
+          $text = $template.GetElementsByTagName('text');
+          $text.Item(0).AppendChild($template.CreateTextNode('GitHub Action: Job Completed!'));
+          $toast = [Windows.UI.Notifications.ToastNotification]::new($template);
+          $notifier = [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('GitHub Actions');
+          $notifier.Show($toast);
