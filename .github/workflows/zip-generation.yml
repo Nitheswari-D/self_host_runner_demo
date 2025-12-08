@@ -49,4 +49,4 @@ jobs:
 
       - name: Run python file on laptop
         run: |
-          python "C:\Users\ksivaraj\runner_result\post_job.py"
+          python "C:/Users/ksivaraj/runner_result/post_job.py"
