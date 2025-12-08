@@ -26,7 +26,7 @@ jobs:
 
 
   create_zip_2:
-    name: ZIP_1 Artifact Job
+    name: ZIP_2 Artifact Job
     runs-on: [self-hosted, nd_runner_2]  
     steps:
       - name: Checkout repo
