@@ -37,6 +37,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Allow PowerShell scripts
+        shell: PowerShell
         run: |
           Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
 
