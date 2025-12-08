@@ -1,33 +1,46 @@
-name: Create Multiple Artifacts
+name: Create ZIP & TAR.GZ on Push
 
 on:
   push:
+    branches:
+      - "**"
 
 jobs:
-  build-artifacts:
-    runs-on: self-hosted
-
+  create_zip:
+    name: ZIP Artifact Job
+    runs-on: [self-hosted, nd_runner_1]   # Runner 1 (Windows)
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Create ZIP artifact
+      - name: Create ZIP file (PowerShell)
+        shell: powershell
         run: |
-          mkdir build
-          zip -r build/project.zip .
-
-      - name: Create TAR.GZ artifact
-        run: |
-          tar -czvf build/project.tar.gz .
+          Compress-Archive -Path . -DestinationPath project.zip -Force
 
       - name: Upload ZIP artifact
         uses: actions/upload-artifact@v4
         with:
-          name: project-zip
-          path: build/project.zip
+          name: repo-zip
+          path: project.zip
+          retention-days: 7
+
+
+  create_targz:
+    name: TAR.GZ Artifact Job
+    runs-on: [self-hosted, nd_runner_2]   # Runner 2 (Windows or Linux)
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Create TAR.GZ file
+        shell: bash   # required for tar on Windows (Git bash) or Linux runner
+        run: |
+          tar -czf project.tar.gz .
 
       - name: Upload TAR.GZ artifact
         uses: actions/upload-artifact@v4
         with:
-          name: project-tar
-          path: build/project.tar.gz
+          name: repo-targz
+          path: project.tar.gz
+          retention-days: 7
