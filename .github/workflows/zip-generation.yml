@@ -6,8 +6,8 @@ on:
       - "**"
 
 jobs:
-  create_zip:
-    name: ZIP Artifact Job
+  create_zip_1:
+    name: ZIP_1 Artifact Job
     runs-on: [self-hosted, nd_runner_1]   # Runner 1 (Windows)
     steps:
       - name: Checkout repo
@@ -25,20 +25,20 @@ jobs:
           retention-days: 7
 
 
-  create_targz:
-    name: TAR.GZ Artifact Job
-    runs-on: [self-hosted, nd_runner_2]   # Runner 2 (Windows or Linux)
+  create_zip_2:
+    name: ZIP_1 Artifact Job
+    runs-on: [self-hosted, nd_runner_2]  
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Create TAR.GZ file
+      - name: Create ZIP file (PowerShell)
         run: |
-          tar -czf project.tar.gz .
+          Compress-Archive -Path . -DestinationPath project.zip -Force
 
-      - name: Upload TAR.GZ artifact
+      - name: Upload ZIP artifact
         uses: actions/upload-artifact@v4
         with:
-          name: repo-targz
-          path: project.tar.gz
+          name: repo-zip
+          path: project.zip
           retention-days: 7
