@@ -36,11 +36,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Allow PowerShell scripts
-        shell: PowerShell
-        run: |
-          Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
-
       - name: Create ZIP file (PowerShell)
         run: |
           Compress-Archive -Path . -DestinationPath project.zip -Force
