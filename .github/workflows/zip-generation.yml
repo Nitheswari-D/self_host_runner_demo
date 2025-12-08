@@ -40,11 +40,11 @@ jobs:
         run: |
           Compress-Archive -Path . -DestinationPath project.zip -Force
 
-      - name: Upload ZIP artifact
+      - name: Upload ZIP_1 artifact
         uses: actions/upload-artifact@v4
         with:
-          name: repo-zip
-          path: project.zip
+          name: repo1-zip
+          path: project1.zip
           retention-days: 7
 
       - name: Run python file on laptop
