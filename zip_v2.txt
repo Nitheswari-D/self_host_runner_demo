@@ -1,0 +1,52 @@
+name: Create ZIP on runner_1 & runner_2 Push
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  create_zip_1:
+    name: ZIP_1 Artifact Job
+    runs-on: [self-hosted, nd_runner_1]   # Runner 1 (Windows)
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Create ZIP file (PowerShell)
+        run: |
+          Compress-Archive -Path . -DestinationPath project.zip -Force
+
+      - name: Upload ZIP artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: repo-zip
+          path: project.zip
+          retention-days: 7
+      
+      - name: Run python file on laptop
+        run: |
+          python "C:/Users/nd/Desktop/runner_result/post_job.py"
+
+
+  create_zip_2:
+    name: ZIP_2 Artifact Job
+    runs-on: [self-hosted, nd_runner_2]  
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Create ZIP file (PowerShell)
+        run: |
+          Compress-Archive -Path . -DestinationPath project.zip -Force
+
+      - name: Upload ZIP_1 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: repo1-zip
+          path: project1.zip
+          retention-days: 7
+
+      - name: Run python file on laptop
+        run: |
+          python "C:/Users/ksivaraj/runner_result/post_job.py"
