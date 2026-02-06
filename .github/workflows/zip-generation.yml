@@ -14,4 +14,4 @@ jobs:
         shell: cmd
         run: |
           cd /d C:\Users\Testing\Documents\Pytest
-          pytest 
+          pytest tests/test_redact.py
