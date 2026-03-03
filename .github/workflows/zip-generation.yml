@@ -1,17 +1,17 @@
-name: Run pytest on local folder (self-hosted)
+# name: Run pytest on local folder (self-hosted)
 
-on:
-  push:
-    branches:
-      - "**"
+# on:
+#   push:
+#     branches:
+#       - "**"
 
-jobs:
-  run_pytest:
-    runs-on: [self-hosted, nd_runner_3]
+# jobs:
+#   run_pytest:
+#     runs-on: [self-hosted, nd_runner_3]
 
-    steps:
-      - name: Run pytest from local folder
-        shell: cmd
-        run: |
-          cd /d C:\Users\Testing\Documents\Pytest
-          pytest tests/test_redact.py
+#     steps:
+#       - name: Run pytest from local folder
+#         shell: cmd
+#         run: |
+#           cd /d C:\Users\Testing\Documents\Pytest
+#           pytest tests/test_redact.py
