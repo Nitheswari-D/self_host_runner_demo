@@ -1,0 +1,25 @@
+jobs:
+  run-pytest:
+    runs-on: [self-hosted, runner_1]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: exploring the device_data.json local path
+        shell: powershell
+        run: echo $env:GITHUB_WORKSPACE
+
+      - name: Copy device_data.json to local folder
+        shell: powershell
+        run: |
+          Copy-Item `
+            "$env:GITHUB_WORKSPACE\device_data.json" `
+            "C:\Users\nd\Desktop\Pytest\data\device_data.json" `
+            -Force
+
+      - name: Run Pytest
+        shell: powershell
+        run: |
+          cd C:\Users\nd\Desktop\Pytest
+          pytest tests/test_powercycle.py
