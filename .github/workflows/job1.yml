@@ -20,7 +20,7 @@ jobs:
         run: |
           copy "%GITHUB_WORKSPACE%\device_data.json" "C:\Users\nd\Desktop\Pytest\data\device_data.json"
 
-      - name: Run Pytest
+      - name: Run Pytest powercycle
         shell: cmd
         run: |
           cd C:\Users\nd\Desktop\Pytest
