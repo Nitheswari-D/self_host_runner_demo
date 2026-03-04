@@ -12,19 +12,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: exploring the device_data.json local path
-        shell: powershell
-        run: echo $env:GITHUB_WORKSPACE
+        shell: cmd
+        run: echo %GITHUB_WORKSPACE%
 
       - name: Copy device_data.json to local folder
-        shell: powershell
+        shell: cmd
         run: |
-          Copy-Item `
-            "$env:GITHUB_WORKSPACE\device_data.json" `
-            "C:\Users\nd\Desktop\Pytest\data\device_data.json" `
-            -Force
+          copy "%GITHUB_WORKSPACE%\device_data.json" "C:\Users\nd\Desktop\Pytest\data\device_data.json"
 
       - name: Run Pytest
-        shell: powershell
+        shell: cmd
         run: |
           cd C:\Users\nd\Desktop\Pytest
           pytest tests/test_powercycle.py
