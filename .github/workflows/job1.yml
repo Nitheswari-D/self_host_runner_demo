@@ -1,3 +1,8 @@
+name: copy json and start running 
+
+on:
+  push: 
+
 jobs:
   run-pytest:
     runs-on: [self-hosted, runner_1]
