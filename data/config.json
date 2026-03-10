@@ -1,0 +1,24 @@
+{
+  "centpp_exe": "data/centpp/CentPPv0.1.181.exe",
+  "output_dir": "data/build/exe_files",
+
+  "force_fw_version_entry": false,
+  "dfu_wait_before_exit_sec": 80,
+  "dfu_only": true,
+  "active_product": "BANJO_B2B",
+
+  "products": {
+    "BANJO_AMAZON": { "index": 1, "display": "Banjo Headset Amazon" },
+    "BANJO_B2B":    { "index": 2, "display": "Banjo Headset B2B" },
+    "BANJO_B2C":    { "index": 3, "display": "Banjo Headset B2C" },
+    "QUAKE2":       { "index": 27, "display": "Quake2 Headset" },
+    "QUAKE3":       { "index": 29, "display": "Quake3 Headset" },
+    "REMO":         { "index": 30, "display": "Remo" },
+    "VOSS HEADSET": { "index": 39, "display": "VOSS Headset" },
+    "YELLOWSTONE":  { "index": 41, "display": "YellowStone Headset" },
+    "YENN":         { "index": 44, "display": "Yenn Headset" }
+  },
+
+  "usb_select_timeout_sec": 20,
+  "auto_launch_redacted_exe": true
+}
