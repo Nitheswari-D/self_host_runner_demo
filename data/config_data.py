@@ -8,6 +8,7 @@ IP_ADDRESS = "192.168.0.103"
 DEVICE_INFO_FILE_PATH = r"data\device_data.json"
 
 
+
 #LED Enumeration
 CAMERA_DEVICE_NAME = "Brio 501"
 REFERENCE_IMG_PATH  = r"data\Images\Reference_img.jpg"  
