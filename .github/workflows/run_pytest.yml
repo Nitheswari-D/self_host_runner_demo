@@ -26,4 +26,3 @@ jobs:
         shell: cmd
         run: |
           pytest  tests/test_tde.py tests/test_dfu.py --html=report.html --self-contained-html
-          
