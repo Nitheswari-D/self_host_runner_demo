@@ -25,4 +25,4 @@ jobs:
       - name: Run pytest
         shell: cmd
         run: |
-          pytest tests/test_tde.py --html=report.html --self-contained-html
+          pytest tests/test_powercycle.py tests/test_tde.py tests/test_dfu.py tests/test_double_dfu.py --html=report.html --self-contained-html
