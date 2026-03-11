@@ -26,7 +26,3 @@ jobs:
         shell: cmd
         run: |
           pytest tests/test_powercycle.py  --html=report.html --self-contained-html
-
-
-
-          
