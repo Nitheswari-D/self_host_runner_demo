@@ -9,6 +9,7 @@ if not device_key:
     raise ValueError("DEVICE_KEY not set in environment")
 
 DEVICE_MAP = {
+    "banjo": "BANJO",
     "sonic": "SONIC",
 }
 
