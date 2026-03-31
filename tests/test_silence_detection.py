@@ -17,6 +17,8 @@ from features.silence_detection.list_devices import list_input_devices
 #         return json.load(f)
 
 
+
+
 def load_config():
     with open("data/silence_detection_config.json") as f:
         config = json.load(f)
