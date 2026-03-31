@@ -29,11 +29,11 @@ def load_config():
     if device_name not in config["devices"]:
         raise Exception(f"Device '{device_name}' not found in config")
 
-    # 🔥 Merge common + device-specific
+    #  Merge common + device-specific
     final_config = config["common"].copy()
     final_config.update(config["devices"][device_name])
 
-    print(f"\n📱 Running for device: {device_name}")
+    print(f"\n Running for device: {device_name}")
 
     return final_config
 
