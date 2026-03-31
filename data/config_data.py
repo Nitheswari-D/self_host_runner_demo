@@ -4,9 +4,8 @@ COMMAND_POWER_OFF = "off"
 DEFAULT_ITERATIONS = 1
 DEVICE_ENUM_TIMEOUT_SEC = 60
 RECORDING_DURATION = 60
-IP_ADDRESS = "192.168.0.103"
+IP_ADDRESS = "192.168.0.101"
 DEVICE_INFO_FILE_PATH = r"data\device_data.json"
-
 
 #LED Enumeration
 CAMERA_DEVICE_NAME = "Brio 501"
@@ -29,7 +28,7 @@ DEVICE_NAME = {
         "vid":0x046D, 
         "pid":0xB28, 
         "usage_pg":65299, 
-        "state": "U"
+        "state": "u"
     },
     "SONIC":{
         "audio_name":"Logi Zone wireless 2 ES B2B-USB", 

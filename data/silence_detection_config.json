@@ -1,0 +1,31 @@
+{
+  "devices": {
+    "BANJO": {
+      "mic_name": "Headset Microphone (Logi Zone W",
+      "playback_device": "BOOM 4"
+    },
+    "SONIC": {
+      "mic_name": "Logi Zone W",
+      "playback_device": "BOOM 4"
+    },
+     "MARIO": {
+      "mic_name": "Logi Zone V",
+      "playback_device": "BOOM 4"
+    },
+     "QUAKE3": {
+      "mic_name": "",
+      "playback_device": ""
+    },
+     "REMO": {
+      "mic_name": "",
+      "playback_device": ""
+    }
+  },
+
+  "common": {
+    "base_dir": "data/silence_detection_data",
+    "duration": 30,
+    "chunk_duration": 10,
+    "playback_file": "data/silence_detection_data/playback_audio.mp3"
+  }
+}

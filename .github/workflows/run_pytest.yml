@@ -7,22 +7,24 @@ on:
 
 jobs:
   run-tests:
-
-    runs-on: [self-hosted, runner_2]
+    runs-on: self-hosted
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Show runner workspace
+      - name: Show runner info
         shell: cmd
         run: |
-          echo Current workspace location:
-          echo %GITHUB_WORKSPACE%
-          dir
+          echo Runner Name: %RUNNER_NAME%
+          echo DEVICE_KEY: %DEVICE_KEY%
+
+      - name: Update JSON based on runner
+        shell: cmd
+        run: |
+          python utils/update_device_data.py
 
       - name: Run pytest
         shell: cmd
         run: |
-          pytest tests/test_powercycle.py  --html=report.html --self-contained-html
+          pytest tests/test_silence_detection.py -v -s --html=report.html --self-contained-html

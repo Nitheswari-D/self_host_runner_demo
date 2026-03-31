@@ -1,12 +1,11 @@
 {
-  "centpp_exe": "data/centpp/CentPPv0.1.182.exe",
+  "centpp_exe": "data/centpp/CentPPv0.1.181.exe",
   "output_dir": "data/build/exe_files",
 
   "force_fw_version_entry": false,
   "dfu_wait_before_exit_sec": 80,
   "dfu_only": true,
   "active_product": "BANJO_B2B",
-
 
   "products": {
     "BANJO_AMAZON": { "index": 1, "display": "Banjo Headset Amazon" },
