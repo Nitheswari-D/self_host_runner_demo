@@ -1,8 +1,8 @@
 {
   "devices": {
     "BANJO": {
-      "mic_name": "Headset Microphone (2- Logi Zon",
-      "playback_device": "BOOM 4"
+      "mic_name": "2- Logi Zon",
+      "playback_device": "2- BOOM 4"
     },
     "SONIC": {
       "mic_name": "Logi Zone W",
