@@ -1,0 +1,9 @@
+--- Silence in chunk 1 (recording_2026-04-01_15-17-09_part_1.wav) ---
+Silence from 0.00s to 100.00s
+
+--- Silence in chunk 2 (recording_2026-04-01_15-17-09_part_2.wav) ---
+Silence from 0.00s to 100.00s
+
+--- Silence in chunk 3 (recording_2026-04-01_15-17-09_part_3.wav) ---
+Silence from 0.00s to 100.00s
+
