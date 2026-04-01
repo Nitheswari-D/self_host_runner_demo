@@ -7,11 +7,11 @@ on:
 
 jobs:
   run-tests:
-    runs-on: self-hosted
-
     strategy:
       matrix:
-        parallel: [1,2]
+        runner_label: [runner_1, runner_3]
+    
+    runs-on: ${{matrix.runner_label}}
 
     steps:
       - name: Checkout repository

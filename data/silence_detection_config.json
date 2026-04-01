@@ -24,8 +24,8 @@
 
   "common": {
     "base_dir": "data/silence_detection_data",
-    "duration": 30,
-    "chunk_duration": 10,
+    "duration": 300,
+    "chunk_duration": 100,
     "playback_file": "data/silence_detection_data/playback_audio.mp3"
   }
 }
