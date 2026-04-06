@@ -7,11 +7,13 @@ on:
 
 jobs:
   run-tests:
+    timeout-minutes: 180
+
     strategy:
       matrix:
         runner_label: [runner_1, runner_3]
     
-    runs-on: ${{matrix.runner_label}}
+    runs-on: [self-hosted, ${{matrix.runner_label}}]
 
     steps:
       - name: Checkout repository
@@ -31,7 +33,7 @@ jobs:
       - name: Run pytest
         shell: cmd
         run: |
-          pytest tests/test_silence_detection.py -v -s 
+          pytest tests/test_silence_detection.py -v -s --html=report.html --self-contained-html
 
 
 
