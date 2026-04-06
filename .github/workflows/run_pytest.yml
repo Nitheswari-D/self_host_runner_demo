@@ -33,7 +33,7 @@ jobs:
       - name: Run pytest
         shell: cmd
         run: |
-          pytest tests/test_silence_detection.py -v -s --html=report.html --self-contained-html
+          pytest tests/test_silence_detection.py -v -s 
 
 
 
