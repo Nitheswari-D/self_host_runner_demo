@@ -13,7 +13,7 @@ jobs:
       matrix:
         runner_label: [runner_1, runner_3]
     
-    runs-on: [self-hosted, ${{matrix.runner_label}}]
+    runs-on: ${{matrix.runner_label}}
 
     steps:
       - name: Checkout repository
