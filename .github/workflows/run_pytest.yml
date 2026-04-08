@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        runner_label: [runner_1, runner_3]
+        runner_label: [runner_1, runner_3, runner_8]
     
     runs-on: ${{matrix.runner_label}}
 
