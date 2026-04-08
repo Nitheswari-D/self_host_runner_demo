@@ -44,7 +44,7 @@ def play_and_record_thread(input_id, output_id, audio_file, output_file):
     def record_stream():
         def callback(indata, frames, time, status):
             if status:
-                print("⚠️", status)
+                print(status)
             recorded.append(indata.copy())
 
         with sd.InputStream(
