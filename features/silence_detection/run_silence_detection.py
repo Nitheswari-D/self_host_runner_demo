@@ -7,7 +7,7 @@ from features.silence_detection.analyze_silence import analyze_silence
 
 
 
-def run_silence_detection(mic_name,mic_index, base_dir, duration, chunk_duration,playback_file, playback_device):
+def run_silence_detection(mic_name,mic_index, base_dir, duration, chunk_duration, playback_file, playback_device, playback_device_index):
     try:
         # Create base directory if not exists
         if not os.path.exists(base_dir):
@@ -23,7 +23,7 @@ def run_silence_detection(mic_name,mic_index, base_dir, duration, chunk_duration
 
         # Record audio
         print("\n Starting recording...")
-        mic_test(device_name=mic_name, device_index=mic_index, filename=full_filename, duration=duration, playback_file=playback_file, playback_device=playback_device)
+        mic_test(device_name=mic_name, device_index=mic_index, filename=full_filename, duration=duration, playback_file=playback_file, playback_device=playback_device, playback_device_index=playback_device_index)
 
         # Validate recording
         if not os.path.exists(full_filename):

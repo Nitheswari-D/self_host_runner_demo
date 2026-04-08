@@ -17,8 +17,6 @@ from features.silence_detection.list_devices import list_input_devices
 #         return json.load(f)
 
 
-
-
 def load_config():
     with open("data/silence_detection_config.json") as f:
         config = json.load(f)
@@ -31,22 +29,22 @@ def load_config():
     if device_name not in config["devices"]:
         raise Exception(f"Device '{device_name}' not found in config")
 
-    #  Merge common + device-specific
+    # 🔥 Merge common + device-specific
     final_config = config["common"].copy()
     final_config.update(config["devices"][device_name])
 
-    print(f"\n Running for device: {device_name}")
+    print(f"\n📱 Running for device: {device_name}")
 
     return final_config
 
 
-def get_device_index(devices, mic_name):
+def get_device_index(devices, device_name):
     for device in devices:
-        if mic_name.lower() in device["name"].lower():
+        if device_name.lower() in device["name"].lower():
             print(f"\n Selected Device: {device['name']}")
             return device["index"]
 
-    raise Exception(f" Device '{mic_name}' not found")
+    raise Exception(f" Device '{device_name}' not found")
 
 def test_silence_detection():
 
@@ -63,6 +61,7 @@ def test_silence_detection():
     devices = list_input_devices()
 
     mic_index = get_device_index(devices, mic_name)
+    playback_device_index = get_device_index(devices, playback_device)
 
     print("\n=== Running Silence Detection Test ===")
 
@@ -73,7 +72,8 @@ def test_silence_detection():
         duration=duration,
         chunk_duration=chunk_duration,
         playback_file=playback_file,
-        playback_device=playback_device
+        playback_device=playback_device,
+        playback_device_index=playback_device_index
     )
 
     assert result is True, "Mic recording or processing failed"

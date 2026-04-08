@@ -5,8 +5,8 @@
       "playback_device": "2- BOOM 4"
     },
     "SONIC": {
-      "mic_name": "Logi Zone W",
-      "playback_device": "(Realtek(R)"
+      "mic_name": "Logi Zone Wireless 2 E",
+      "playback_device": "Realtek(R) Audio"
     },
      "MARIO": {
       "mic_name": "Logi Zone V",
@@ -24,15 +24,8 @@
 
   "common": {
     "base_dir": "data/silence_detection_data",
-    "duration": 43200,
-    "chunk_duration": 3600,
+    "duration": 30,
+    "chunk_duration": 10,
     "playback_file": "data/silence_detection_data/playback_audio.mp3"
   }
 }
-
-
-
-
-
-
-

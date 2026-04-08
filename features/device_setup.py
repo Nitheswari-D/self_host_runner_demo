@@ -1,5 +1,9 @@
 import os
 import json
+import serial
+import serial.tools.list_ports
+import re
+import time
 from data.config_data import DEVICE_NAME
 
 
@@ -30,3 +34,44 @@ def setup_device(context, raw_name):
     }
 
     return True
+
+
+def find_esp_port():
+    ports = serial.tools.list_ports.comports()
+
+    for port in ports:
+        print(f"Checking: {port.device} - {port.description}")
+
+        if "CP210x" in port.description:
+            print(f"ESP32 found on {port.device}")
+            return port.device
+
+    raise Exception("ESP32 not found")
+
+
+def get_esp_ip():
+    port = find_esp_port()
+
+    ser = serial.Serial(port, 115200, timeout=2)
+
+    ser.setDTR(False)
+    time.sleep(0.5)
+    ser.setDTR(True)
+
+    print("Waiting for IP log...")
+
+    start_time = time.time()
+
+    while True:
+        line = ser.readline().decode(errors="ignore").strip()
+
+        if line:
+            print(line)
+
+        if "WIFI_INIT: Got IP:" in line:
+            ip = re.search(r"\d+\.\d+\.\d+\.\d+", line).group()
+            print(f"\nESP32 IP Detected: {ip}")
+            return ip
+
+        if time.time() - start_time > 20:
+            raise Exception("Failed to get IP from ESP32")

@@ -1,0 +1,9 @@
+--- Silence in chunk 1 (recording_2026-03-29_23-00-17_part_1.wav) ---
+No significant silence detected.
+
+--- Silence in chunk 2 (recording_2026-03-29_23-00-17_part_2.wav) ---
+No significant silence detected.
+
+--- Silence in chunk 3 (recording_2026-03-29_23-00-17_part_3.wav) ---
+Silence from 6.81s to 7.37s
+

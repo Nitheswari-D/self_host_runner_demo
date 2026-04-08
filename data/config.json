@@ -6,7 +6,7 @@
   "dfu_wait_before_exit_sec": 80,
   "dfu_only": true,
   "active_product": "BANJO_B2B",
-  
+
   "products": {
     "BANJO_AMAZON": { "index": 1, "display": "Banjo Headset Amazon" },
     "BANJO_B2B":    { "index": 2, "display": "Banjo Headset B2B" },

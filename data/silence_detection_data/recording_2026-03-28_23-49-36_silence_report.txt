@@ -1,0 +1,10 @@
+--- Silence in chunk 1 (recording_2026-03-28_23-49-36_part_1.wav) ---
+Silence from 0.00s to 0.54s
+Silence from 0.66s to 10.00s
+
+--- Silence in chunk 2 (recording_2026-03-28_23-49-36_part_2.wav) ---
+Silence from 0.00s to 10.00s
+
+--- Silence in chunk 3 (recording_2026-03-28_23-49-36_part_3.wav) ---
+Silence from 0.00s to 10.00s
+

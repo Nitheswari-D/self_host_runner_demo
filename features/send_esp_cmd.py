@@ -4,7 +4,6 @@ def send_command_to_device(ip, state):
     """
     Sends a command (ON/OFF) to the target device via HTTP.
     """
-    
     url = f"http://{ip}/cmd"
     params = {"state": state}
     try:

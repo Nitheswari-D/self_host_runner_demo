@@ -7,12 +7,13 @@ def power_on(context):
 
     device = context["device"]
     state = device["state"]
+    ip = context["ip"]
 
-    if not send_command_to_device(IP_ADDRESS, state):
+    if not send_command_to_device(ip, state):
         print("false - state not sent properly!")
         return False
 
-    if not send_command_to_device(IP_ADDRESS, COMMAND_POWER_ON):
+    if not send_command_to_device(ip, COMMAND_POWER_ON):
         return False
 
     return True
@@ -20,8 +21,9 @@ def power_on(context):
 
 def power_off(context):
     print("======== Running POWER OFF ========")
+    ip = context["ip"]
 
-    if not send_command_to_device(IP_ADDRESS, COMMAND_POWER_OFF):
+    if not send_command_to_device(ip, COMMAND_POWER_OFF):
         return False
 
     return True
