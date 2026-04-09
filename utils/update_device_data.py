@@ -12,6 +12,7 @@ DEVICE_MAP = {
     "banjo": "BANJO",
     "sonic": "SONIC",
     "mario": "MARIO",
+    "quake3": "QUAKE3"
 }
 
 if device_key not in DEVICE_MAP:

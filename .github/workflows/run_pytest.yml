@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        runner_label: [banjo, sonic, mario]
+        runner_label: [banjo, sonic, mario, quake3]
     
     runs-on: ${{matrix.runner_label}}
 
