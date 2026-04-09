@@ -38,13 +38,36 @@ def load_config():
     return final_config
 
 
-def get_device_index(devices, device_name):
+# def get_device_index(devices, device_name):
+#     for device in devices:
+#         if device_name.lower() in device["name"].lower():
+#             print(f"\n Selected Device: {device['name']}")
+#             return device["index"]
+
+#     raise Exception(f" Device '{device_name}' not found")
+
+def get_output_device_index(devices, name):
     for device in devices:
-        if device_name.lower() in device["name"].lower():
-            print(f"\n Selected Device: {device['name']}")
+        if (
+            name.lower() in device["name"].lower()
+            and device["max_output_channels"] > 0
+        ):
+            print(f"Selected OUTPUT Device: {device['name']}")
             return device["index"]
 
-    raise Exception(f" Device '{device_name}' not found")
+    raise Exception(f"Output device '{name}' not found")
+
+
+def get_input_device_index(devices, name):
+    for device in devices:
+        if (
+            name.lower() in device["name"].lower()
+            and device["max_input_channels"] > 0
+        ):
+            print(f"Selected INPUT Device: {device['name']}")
+            return device["index"]
+
+    raise Exception(f"Input device '{name}' not found")
 
 def test_silence_detection():
 
@@ -60,8 +83,8 @@ def test_silence_detection():
     print("\n=== Listing Input Devices ===")
     devices = list_input_devices()
 
-    mic_index = get_device_index(devices, mic_name)
-    playback_device_index = get_device_index(devices, playback_device)
+    mic_index = get_input_device_index(devices, mic_name)
+    playback_device_index = get_output_device_index(devices, playback_device)
 
     print("\n=== Running Silence Detection Test ===")
 
