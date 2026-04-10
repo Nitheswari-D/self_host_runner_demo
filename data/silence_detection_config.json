@@ -2,7 +2,7 @@
   "devices": {
     "BANJO": {
       "mic_name": "2- Logi Zon",
-      "playback_device": "2- BOOM 4"
+      "playback_device": "Realtek(R)"
     },
     "SONIC": {
       "mic_name": "Logi Zone Wireless 2 E",
