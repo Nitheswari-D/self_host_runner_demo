@@ -38,7 +38,7 @@ jobs:
 
           if not exist C:\Users\Testing\Documents\runner_reports mkdir C:\Users\Testing\Documents\runner_reports
 
-          pytest tests/test_silence_detection.py --html=C:\Users\TestingDocuments\runner_reports\%filename% --self-contained-html
+          pytest tests/test_silence_detection.py --html=C:\Users\Testing\Documents\runner_reports\%filename% --self-contained-html
 
 
 
