@@ -30,10 +30,15 @@ jobs:
         run: |
           python utils/update_device_data.py
 
-      - name: Run pytest
+      - name: Run pytest and save report
         shell: cmd
         run: |
-          pytest tests/test_silence_detection.py -s -v
+          set mydate=%date:~-4%-%date:~4,2%-%date:~7,2%
+          set filename=report_%RUNNER_NAME%_%mydate%.html
+
+          if not exist C:\Users\Testing\Documents\runner_reports mkdir C:\Users\Testing\Documents\runner_reports
+
+          pytest tests/test_silence_detection.py --html=C:\Users\TestingDocuments\runner_reports\%filename% --self-contained-html
 
 
 
