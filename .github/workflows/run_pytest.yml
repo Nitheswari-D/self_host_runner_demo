@@ -35,10 +35,11 @@ jobs:
         run: |
           set mydate=%date:~-4%-%date:~4,2%-%date:~7,2%
           set filename=report_%RUNNER_NAME%_%mydate%.html
+          echo %filename%
 
-          if not exist C:\Users\Testing\Documents\runner_reports mkdir C:\Users\Testing\Documents\runner_reports
+          if not exist C:\Users\Testing\Documents\runner_reports\Saturday_report mkdir C:\Users\Testing\Documents\runner_reports\Saturday_report
 
-          pytest tests/test_silence_detection.py --html=C:\Users\Testing\Documents\runner_reports\%filename% --self-contained-html
+          pytest tests/test_silence_detection.py --html=C:\Users\Testing\Documents\runner_reports\Saturday_report\%filename% --self-contained-html
 
 
 
