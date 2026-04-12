@@ -37,9 +37,9 @@ jobs:
           set filename=report_%RUNNER_NAME%_%mydate%.html
           echo %filename%
 
-          if not exist C:\Users\Testing\Documents\runner_reports\Saturday_report mkdir C:\Users\Testing\Documents\runner_reports\Saturday_report
+          if not exist C:\Users\Testing\Documents\runner_reports\Sunday_report mkdir C:\Users\Testing\Documents\runner_reports\Sunday_report
 
-          pytest tests/test_silence_detection.py --html=C:\Users\Testing\Documents\runner_reports\Saturday_report\%filename% --self-contained-html
+          pytest tests/test_silence_detection.py --html=C:\Users\Testing\Documents\runner_reports\Sunday_report\%filename% --self-contained-html
 
 
 
