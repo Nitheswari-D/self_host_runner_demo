@@ -8,7 +8,7 @@ on:
 jobs:
   run-tests:
 
-    runs-on: [self-hosted, runner_1]
+    runs-on: [self-hosted, runner_7]
 
     steps:
 
