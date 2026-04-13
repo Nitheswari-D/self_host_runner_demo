@@ -45,7 +45,3 @@ jobs:
 
 
 
-
-=======
-          pytest tests/test_powercycle.py -s -v 
->>>>>>> cc7018e (update_ci1)
