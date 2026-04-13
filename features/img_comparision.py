@@ -1,7 +1,7 @@
 import PIL.Image,json
 from google import genai
 
-client = genai.Client(api_key="AIzaSyAXsXien4tk2w4H79_aLhNCYoDlY9vmZfs")
+client = genai.Client(api_key="AIzaSyBE9ieqPMwlX0zgtV7M2doIXlnBDrCnb90")
 
 
 def img_cmp(expected_img_path, taken_img_path):

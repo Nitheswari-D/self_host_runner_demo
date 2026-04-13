@@ -1,8 +1,8 @@
 {
   "devices": {
     "BANJO": {
-      "mic_name": "2- Logi Zon",
-      "playback_device": "Realtek(R)"
+      "mic_name": "Logi Zone W",
+      "playback_device": "2- Realtek(R) Audio"
     },
     "SONIC": {
       "mic_name": "Logi Zone WL2 ES B2B",
@@ -24,8 +24,8 @@
 
   "common": {
     "base_dir": "data/silence_detection_data",
-    "duration": 43200,
-    "chunk_duration": 3600,
+    "duration": 30,
+    "chunk_duration": 10,
     "playback_file": "data/silence_detection_data/playback_audio.mp3"
   }
 }

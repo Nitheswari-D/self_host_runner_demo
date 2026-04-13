@@ -69,7 +69,7 @@ def get_input_device_index(devices, name):
 
     raise Exception(f"Input device '{name}' not found")
 
-def test_silence_detection():
+def test_silence_detection(redact_setup_module):
 
     config = load_config()
 

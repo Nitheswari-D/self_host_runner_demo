@@ -7,25 +7,22 @@ on:
 
 jobs:
   run-tests:
-    timeout-minutes: 840
 
-    strategy:
-      matrix:
-        runner_label: [banjo, sonic, mario]
-    
-    runs-on: ${{matrix.runner_label}}
+    runs-on: [self-hosted, runner_7]
 
     steps:
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Show runner info
+      - name: Show runner workspace
         shell: cmd
         run: |
-          echo Runner Name: %RUNNER_NAME%
-          echo DEVICE_KEY: %DEVICE_KEY%
+          echo Current workspace location:
+          echo %GITHUB_WORKSPACE%
+          dir
 
-      - name: Update JSON based on runner
+      - name: Run pytest
         shell: cmd
         run: |
           python utils/update_device_data.py
@@ -49,3 +46,6 @@ jobs:
 
 
 
+=======
+          pytest tests/test_powercycle.py -s -v 
+>>>>>>> cc7018e (update_ci1)
